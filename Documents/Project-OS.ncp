@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>Enemy</Name>
         <Access>Public</Access>
-        <Location left="750" top="70" />
+        <Location left="1238" top="72" />
         <Size width="240" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int damage</Member>
@@ -21,13 +21,13 @@
       </Entity>
       <Entity type="Comment">
         <Text>The base class of every enemy type</Text>
-        <Location left="750" top="10" />
+        <Location left="1238" top="12" />
         <Size width="160" height="50" />
       </Entity>
       <Entity type="Class">
         <Name>T1</Name>
         <Access>Public</Access>
-        <Location left="570" top="313" />
+        <Location left="1058" top="315" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void Movement()</Member>
@@ -36,7 +36,7 @@
       <Entity type="Class">
         <Name>T2</Name>
         <Access>Public</Access>
-        <Location left="750" top="313" />
+        <Location left="1238" top="315" />
         <Size width="174" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void Movement()</Member>
@@ -46,7 +46,7 @@
       <Entity type="Class">
         <Name>T3</Name>
         <Access>Public</Access>
-        <Location left="948" top="313" />
+        <Location left="1436" top="315" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void Movement()</Member>
@@ -79,12 +79,30 @@
       <Entity type="Class">
         <Name>Projectile</Name>
         <Access>Public</Access>
-        <Location left="470" top="92" />
+        <Location left="958" top="94" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int speed</Member>
         <Member type="Field">int damage</Member>
         <Member type="Method">void Movement()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TouchManager</Name>
+        <Access>Public</Access>
+        <Location left="10" top="598" />
+        <Size width="177" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static TouchManager thisManager</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SwarmManager</Name>
+        <Access>Public</Access>
+        <Location left="10" top="828" />
+        <Size width="177" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static SwarmManager thisManager</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -93,47 +111,49 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>652</X>
-          <Y>288</Y>
+          <X>1140</X>
+          <Y>290</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>725</X>
-          <Y>255</Y>
+          <X>1213</X>
+          <Y>257</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Comment" first="1" second="0">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>725</X>
-          <Y>39</Y>
+          <X>1213</X>
+          <Y>41</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>725</X>
-          <Y>80</Y>
+          <X>1213</X>
+          <Y>82</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="3" second="0">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>830</X>
-          <Y>288</Y>
+          <X>1318</X>
+          <Y>290</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>830</X>
-          <Y>295</Y>
+          <X>1318</X>
+          <Y>297</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="4" second="0">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>965</X>
-          <Y>291</Y>
+          <X>1453</X>
+          <Y>293</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="7" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>

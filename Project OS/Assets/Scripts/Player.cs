@@ -15,10 +15,14 @@ public class Player : MonoBehaviour {
             Controls();
         }
     }
-    void Controls() {  
+    void Controls() {
+        if (Input.touches.Length > 0) {
+
+            if (Input.touches[0].phase == TouchPhase.Ended) {
+            }
+        }
     }
     void Shoot(Vector3 dir) {
-        transform.LookAt(dir);
         GameObject projectile =(GameObject)Instantiate(ProjectileManager.thisManager.EquipedProjectile,transform.forward,Quaternion.identity);
     }
     private void OnTriggerEnter(Collider Intruder) {
