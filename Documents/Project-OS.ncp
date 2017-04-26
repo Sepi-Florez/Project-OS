@@ -53,44 +53,47 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Player</Name>
+        <Name>OSDS</Name>
         <Access>Public</Access>
         <Location left="10" top="10" />
         <Size width="234" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int health</Member>
         <Member type="Field">float regenTime</Member>
+        <Member type="Field">Transform Planet</Member>
+        <Member type="Method">public void Move(Vector2 pos)</Member>
         <Member type="Method">void Shoot()</Member>
-        <Member type="Method">void Controls()</Member>
         <Member type="Method">void OnTriggerEnter(Collider Intruder)</Member>
         <Member type="Method">IEnumerator RegenerateShield()</Member>
-        <Member type="Method">void GameOver()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>GameManager</Name>
         <Access>Public</Access>
-        <Location left="10" top="370" />
+        <Location left="10" top="583" />
         <Size width="177" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static GameManager thisManager</Member>
+        <Member type="Field">bool gameOver</Member>
+        <Member type="Method">public void GameOver()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Projectile</Name>
         <Access>Public</Access>
-        <Location left="958" top="94" />
-        <Size width="162" height="128" />
+        <Location left="489" top="10" />
+        <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int speed</Member>
         <Member type="Field">int damage</Member>
         <Member type="Method">void Movement()</Member>
+        <Member type="Method">void Destroyed()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>TouchManager</Name>
         <Access>Public</Access>
-        <Location left="10" top="598" />
+        <Location left="10" top="813" />
         <Size width="177" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static TouchManager thisManager</Member>
@@ -99,10 +102,21 @@
       <Entity type="Class">
         <Name>SwarmManager</Name>
         <Access>Public</Access>
-        <Location left="10" top="828" />
+        <Location left="10" top="1043" />
         <Size width="177" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static SwarmManager thisManager</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ProjectileManager</Name>
+        <Access>Public</Access>
+        <Location left="10" top="353" />
+        <Size width="177" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static ProjectileManager thisManager</Member>
+        <Member type="Field">public GameObject EquipedProjectile</Member>
+        <Member type="Field">GameObject[] projectiles</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -150,14 +164,6 @@
           <X>1453</X>
           <Y>293</Y>
         </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="7" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>

@@ -4,60 +4,52 @@ using UnityEngine;
 
 public class TouchManager : MonoBehaviour {
 
-    public LayerMask touchInputMask;
-
-    private List<GameObject> touchList = new List<GameObject>();
-    private GameObject[] touchesOld;
-
     public static TouchManager thisManager;
 
+    bool i = false;
     void Update() {
-        
-#if UNITY_EDITOR
-        if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) {
-
-
-            print("test");
-            Ray ray = transform.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, touchInputMask)) {
-
-                GameObject recipient = hit.transform.gameObject;
-
-                if (Input.GetMouseButtonUp(0)) {
-                    print("Harry");
-                }
-            }
-            
-        }
-#endif
         if (Input.touches.Length > 0) {
 
-            touchesOld = new GameObject[touchList.Count];
-            touchList.CopyTo(touchesOld);
-            touchList.Clear();
-
             foreach (Touch touch in Input.touches) {
-
-                Ray ray = transform.GetComponent<Camera>().ScreenPointToRay(touch.position);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, touchInputMask)) {
-
-                    GameObject recipient = hit.transform.gameObject;
-                    touchList.Add(recipient);
-
-                    if (touch.phase == TouchPhase.Ended) {
-                        print("Harry2");
-                    }
-                }
-            }
-            foreach(GameObject g in touchesOld) {
-                if (!touchList.Contains(g)) {
-
+                switch (touch.fingerId) {
+                    case 0:
+                        if (!i) {
+                            Aim(touch);
+                        }
+                        else {
+                            Fire(touch);
+                        }
+                        break;
+                    case 1:
+                        if (i) {
+                            Aim(touch);
+                        }
+                        else {
+                            Fire(touch);
+                        }
+                        break;
                 }
             }
         }
     }
+    void Aim(Touch touch) {
+        if (touch.phase == TouchPhase.Began) {
+            OSDS.player.Move(transform.GetComponent<Camera>().ScreenToWorldPoint(touch.position));
+        }
+        if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) {
+            OSDS.player.Move(transform.GetComponent<Camera>().ScreenToWorldPoint(touch.position));
+        }
+        if (touch.phase == TouchPhase.Ended) {
+            OSDS.player.Shoot();
+            if(Input.touches.Length == 2) {
+                i = !i;
+            }
+        }
+    }
+    void Fire(Touch touch) {
+        if (touch.phase == TouchPhase.Ended) {
+            OSDS.player.Shoot();
+        }
+    }
 }
+

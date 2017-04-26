@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour {
     public static ProjectileManager thisManager;
+    public GameObject[] projectiles;
     public GameObject EquipedProjectile;
 
 
