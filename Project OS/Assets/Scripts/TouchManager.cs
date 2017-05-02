@@ -44,6 +44,9 @@ public class TouchManager : MonoBehaviour {
             if(Input.touches.Length == 2) {
                 i = !i;
             }
+            else if(touch.fingerId == 1) {
+                i = !i;
+            }
         }
     }
     void Fire(Touch touch) {

@@ -14,15 +14,14 @@
         <Member type="Field">int speed</Member>
         <Member type="Field">int health</Member>
         <Member type="Field">int score</Member>
-        <Member type="Method">public void Hit(int damage)</Member>
         <Member type="Method">public void Destroyed()</Member>
         <Member type="Method">void OnTriggerEnter(Collider projectile)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
         <Text>The base class of every enemy type</Text>
-        <Location left="1238" top="12" />
-        <Size width="160" height="50" />
+        <Location left="1238" top="10" />
+        <Size width="160" height="56" />
       </Entity>
       <Entity type="Class">
         <Name>T1</Name>
@@ -55,15 +54,15 @@
       <Entity type="Class">
         <Name>OSDS</Name>
         <Access>Public</Access>
-        <Location left="10" top="10" />
-        <Size width="234" height="216" />
+        <Location left="10" top="187" />
+        <Size width="329" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int health</Member>
         <Member type="Field">float regenTime</Member>
         <Member type="Field">Transform Planet</Member>
         <Member type="Method">public void Move(Vector2 pos)</Member>
         <Member type="Method">void Shoot()</Member>
-        <Member type="Method">void OnTriggerEnter(Collider Intruder)</Member>
+        <Member type="Method">void OnTriggerEnter2D(Collider2D Intruder)</Member>
         <Member type="Method">IEnumerator RegenerateShield()</Member>
         <Modifier>None</Modifier>
       </Entity>
@@ -81,7 +80,7 @@
       <Entity type="Class">
         <Name>Projectile</Name>
         <Access>Public</Access>
-        <Location left="489" top="10" />
+        <Location left="484" top="90" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int speed</Member>
@@ -97,6 +96,8 @@
         <Size width="177" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static TouchManager thisManager</Member>
+        <Member type="Method">void Shoot(Touch touch)</Member>
+        <Member type="Method">void Aim(Touch touch)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -111,12 +112,41 @@
       <Entity type="Class">
         <Name>ProjectileManager</Name>
         <Access>Public</Access>
-        <Location left="10" top="353" />
-        <Size width="177" height="216" />
+        <Location left="678" top="90" />
+        <Size width="234" height="225" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static ProjectileManager thisManager</Member>
         <Member type="Field">public GameObject EquipedProjectile</Member>
         <Member type="Field">GameObject[] projectiles</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>The base class of every ammo type.</Text>
+        <Location left="484" top="10" />
+        <Size width="160" height="55" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>Holds all the ammo type prefabs and knows which one is equiped</Text>
+        <Location left="678" top="10" />
+        <Size width="219" height="56" />
+      </Entity>
+      <Entity type="Class">
+        <Name>Planet</Name>
+        <Access>Public</Access>
+        <Location left="10" top="10" />
+        <Size width="329" height="157" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int Health</Member>
+        <Member type="Method">void OnTriggerEnter2D(Collider2D Intruder)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UIManager</Name>
+        <Access>Public</Access>
+        <Location left="584" top="530" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public static UIManager thisManager</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -138,7 +168,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1213</X>
-          <Y>41</Y>
+          <Y>39</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1213</X>
@@ -163,6 +193,30 @@
         <BendPoint relativeToStartShape="False">
           <X>1453</X>
           <Y>293</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Comment" first="11" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>447</X>
+          <Y>38</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>459</X>
+          <Y>120</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Comment" first="12" second="10">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>937</X>
+          <Y>40</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>937</X>
+          <Y>114</Y>
         </BendPoint>
       </Relationship>
     </Relationships>
