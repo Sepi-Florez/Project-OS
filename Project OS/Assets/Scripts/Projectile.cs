@@ -17,4 +17,7 @@ public class Projectile : MonoBehaviour {
     void Movement() {
         transform.Translate(dir * speed);
     }
+    public void Destroyed() {
+        Destroy(gameObject);
+    }
 }

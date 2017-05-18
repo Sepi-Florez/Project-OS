@@ -25,17 +25,22 @@ public class OSDS : MonoBehaviour {
     public void Shoot() {
         GameObject projectile =(GameObject)Instantiate(ProjectileManager.thisManager.EquipedProjectile,transform.position,Quaternion.identity);
     }
-    private void OnTriggerEnter(Collider Intruder) {
+    private void OnTriggerEnter2D(Collider2D Intruder) {
         if(Intruder.transform.tag == "Enemy") {
+            Enemy enemy = Intruder.GetComponent<Enemy>();
             if (shield) {
                 shield = false;
                 regen = StartCoroutine(RegenerateShield());
-                return;
+
             }
-            health--;
-            if(health == 0) {
-                GameManager.thisManager.GameOver();
+            else {
+                health -= enemy.damage;
+
+                if (health == 0) {
+                    GameManager.thisManager.GameOver();
+                }
             }
+            enemy.Destroyed();
         }
     }
     IEnumerator RegenerateShield() {
