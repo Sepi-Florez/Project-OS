@@ -21,7 +21,7 @@
       </Entity>
       <Entity type="Comment">
         <Text>The base class of every enemy type</Text>
-        <Location left="1238" top="12" />
+        <Location left="1238" top="11" />
         <Size width="160" height="50" />
       </Entity>
       <Entity type="Class">
@@ -81,7 +81,7 @@
       <Entity type="Class">
         <Name>Projectile</Name>
         <Access>Public</Access>
-        <Location left="489" top="10" />
+        <Location left="557" top="68" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int speed</Member>
@@ -93,10 +93,12 @@
       <Entity type="Class">
         <Name>TouchManager</Name>
         <Access>Public</Access>
-        <Location left="10" top="813" />
+        <Location left="10" top="812" />
         <Size width="177" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public static TouchManager thisManager</Member>
+        <Member type="Method">void Shoot(Touch touch)</Member>
+        <Member type="Method">void Aim(Touch touch)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -119,6 +121,11 @@
         <Member type="Field">GameObject[] projectiles</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Comment">
+        <Text>The base class of every ammo type</Text>
+        <Location left="557" top="10" />
+        <Size width="160" height="50" />
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Generalization" first="2" second="0">
@@ -138,7 +145,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>1213</X>
-          <Y>41</Y>
+          <Y>40</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1213</X>
@@ -163,6 +170,18 @@
         <BendPoint relativeToStartShape="False">
           <X>1453</X>
           <Y>293</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Comment" first="11" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>528</X>
+          <Y>29</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>528</X>
+          <Y>94</Y>
         </BendPoint>
       </Relationship>
     </Relationships>
